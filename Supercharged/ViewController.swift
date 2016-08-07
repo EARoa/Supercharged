@@ -12,40 +12,46 @@ import CoreLocation
 
 
 class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDelegate {
-
+    
+    @IBOutlet weak var detailedView :UIView!
     @IBOutlet weak var mapView :MKMapView!
+    
+    var someshit :String!
+    
+    
+    
+    @IBOutlet weak var amenitiesLabel :UILabel!
+    
     var locations = [SuperchargerLocations]()
     var locationManager :CLLocationManager!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAPI()
-        }
+        mapSetup()
+        
+    }
     
+    
+    private func mapSetup(){
+        self.mapView.delegate = self
+    }
     
     private func loadAPI() {
-        
         let myAPI = "https://www.tesla.com/all-locations?type=destination_charger"
-        
         guard let url = NSURL(string: myAPI) else {
             fatalError("Invalid URL")
         }
         
         let session = NSURLSession.sharedSession()
-        
-        
         session.dataTaskWithURL(url) { (data :NSData?, response :NSURLResponse?, error :NSError?) in
-            
             guard let jsonResult = NSString(data: data!, encoding: NSUTF8StringEncoding) else {
                 fatalError("Unable to format data")
             }
             
             
             let superchargerResponse = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments) as! [NSDictionary!]
-            
-            
-            
             for item in superchargerResponse {
                 let locations = SuperchargerLocations()
                 locations.nid = item.valueForKey("nid") as? String
@@ -72,27 +78,43 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
             }
             print(self.locations)
             dispatch_async(dispatch_get_main_queue(), {
-
                 for items in self.locations {
-                    print ("Lat: \(items.latitude), Long: \(items.longitude)")
-                    
+
+//                    print ("Lat: \(items.latitude), Long: \(items.longitude)")
                     let pinAnnotation = MKPointAnnotation()
                     pinAnnotation.title = items.title
                     let myLat = Double(items.latitude)
                     let myLong = Double(items.longitude)
+                    let someshit = self.amenitiesLabel.text
+
                     pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: myLat!, longitude: myLong!)
                     self.mapView.addAnnotation(pinAnnotation)
                 }
             })
-            
             }.resume()
+    
+        
+
     }
 
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        var superchargerAnnotationView = self.mapView.dequeueReusableAnnotationViewWithIdentifier("SuperchargerAnnotationView")
+        if superchargerAnnotationView == nil {
+            superchargerAnnotationView = SuperchargerAnnotationView(annotation: annotation, reuseIdentifier: "SuperchargerAnnotationView")
+        }
+        let pointImageView = UIImageView(image: UIImage(named: "pinpoint"))
+        return superchargerAnnotationView
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 

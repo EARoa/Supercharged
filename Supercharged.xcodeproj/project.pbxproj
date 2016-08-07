@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1010DAA41D57E2DE0005EB68 /* SuperchargerAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1010DAA31D57E2DE0005EB68 /* SuperchargerAnnotationView.swift */; };
 		102A7E1F1D57A9CC00E2AFF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102A7E1E1D57A9CC00E2AFF5 /* AppDelegate.swift */; };
 		102A7E211D57A9CC00E2AFF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102A7E201D57A9CC00E2AFF5 /* ViewController.swift */; };
 		102A7E241D57A9CC00E2AFF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 102A7E221D57A9CC00E2AFF5 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1010DAA31D57E2DE0005EB68 /* SuperchargerAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperchargerAnnotationView.swift; sourceTree = "<group>"; };
 		102A7E1B1D57A9CC00E2AFF5 /* Supercharged.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Supercharged.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		102A7E1E1D57A9CC00E2AFF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		102A7E201D57A9CC00E2AFF5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				102A7E271D57A9CC00E2AFF5 /* LaunchScreen.storyboard */,
 				102A7E2A1D57A9CC00E2AFF5 /* Info.plist */,
 				102A7E301D57AB4000E2AFF5 /* SuperchargerLocations.swift */,
+				1010DAA31D57E2DE0005EB68 /* SuperchargerAnnotationView.swift */,
 			);
 			path = Supercharged;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1010DAA41D57E2DE0005EB68 /* SuperchargerAnnotationView.swift in Sources */,
 				102A7E211D57A9CC00E2AFF5 /* ViewController.swift in Sources */,
 				102A7E1F1D57A9CC00E2AFF5 /* AppDelegate.swift in Sources */,
 				102A7E311D57AB4000E2AFF5 /* SuperchargerLocations.swift in Sources */,
@@ -292,6 +296,7 @@
 				102A7E2F1D57A9CC00E2AFF5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
