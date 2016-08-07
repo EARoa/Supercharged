@@ -12,6 +12,7 @@
 		102A7E241D57A9CC00E2AFF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 102A7E221D57A9CC00E2AFF5 /* Main.storyboard */; };
 		102A7E261D57A9CC00E2AFF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 102A7E251D57A9CC00E2AFF5 /* Assets.xcassets */; };
 		102A7E291D57A9CC00E2AFF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 102A7E271D57A9CC00E2AFF5 /* LaunchScreen.storyboard */; };
+		102A7E311D57AB4000E2AFF5 /* SuperchargerLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102A7E301D57AB4000E2AFF5 /* SuperchargerLocations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		102A7E251D57A9CC00E2AFF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		102A7E281D57A9CC00E2AFF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		102A7E2A1D57A9CC00E2AFF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		102A7E301D57AB4000E2AFF5 /* SuperchargerLocations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperchargerLocations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				102A7E251D57A9CC00E2AFF5 /* Assets.xcassets */,
 				102A7E271D57A9CC00E2AFF5 /* LaunchScreen.storyboard */,
 				102A7E2A1D57A9CC00E2AFF5 /* Info.plist */,
+				102A7E301D57AB4000E2AFF5 /* SuperchargerLocations.swift */,
 			);
 			path = Supercharged;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			files = (
 				102A7E211D57A9CC00E2AFF5 /* ViewController.swift in Sources */,
 				102A7E1F1D57A9CC00E2AFF5 /* AppDelegate.swift in Sources */,
+				102A7E311D57AB4000E2AFF5 /* SuperchargerLocations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
