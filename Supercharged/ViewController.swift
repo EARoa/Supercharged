@@ -15,13 +15,8 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
     
     @IBOutlet weak var detailedView :UIView!
     @IBOutlet weak var mapView :MKMapView!
-    
-    var someshit :String!
-    
-    
-    
     @IBOutlet weak var amenitiesLabel :UILabel!
-    
+
     var locations = [SuperchargerLocations]()
     var locationManager :CLLocationManager!
     
@@ -35,7 +30,16 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
     
     
     private func mapSetup(){
+        self.locationManager = CLLocationManager()
+        self.locationManager.delegate = self
         self.mapView.delegate = self
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.distanceFilter = kCLDistanceFilterNone
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.startUpdatingLocation()
+        self.mapView.showsUserLocation = true
+
     }
     
     private func loadAPI() {
@@ -85,7 +89,6 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
                     pinAnnotation.title = items.title
                     let myLat = Double(items.latitude)
                     let myLong = Double(items.longitude)
-                    let someshit = self.amenitiesLabel.text
 
                     pinAnnotation.coordinate = CLLocationCoordinate2D(latitude: myLat!, longitude: myLong!)
                     self.mapView.addAnnotation(pinAnnotation)
@@ -97,6 +100,19 @@ class ViewController: UIViewController,CLLocationManagerDelegate, MKMapViewDeleg
 
     }
 
+    
+    func mapView(mapView: MKMapView, didAddAnnotationViews views: [MKAnnotationView]) {
+        if let annotationView = views.first {
+            if let annotation = annotationView.annotation {
+                if annotation is MKUserLocation {
+                    let region = MKCoordinateRegionMakeWithDistance(annotation.coordinate, 2000, 2000)
+                    self.mapView.setRegion(region, animated: true)
+                }
+            }
+        }
+    }
+
+    
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
